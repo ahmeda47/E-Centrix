@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-mongoose.connect(db, {
+mongoose.connect(process.env.MONGODB_URI || db, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
