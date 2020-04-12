@@ -3,6 +3,19 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const db = require("./config/keys").mongoURI;
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const passport = require("passport");
+
+// Bodyparser middleware
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
+app.use(bodyParser.json());
+
+const users = require("./routes/api/users");
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -11,7 +24,15 @@ if (process.env.NODE_ENV === "production") {
 
 mongoose.connect(db, {
   useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
+
+// Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./config/passport")(passport);
+// Routes
+app.use("/api/users", users);
 
 // Send every request to the React app
 // Define any API routes before this runs
