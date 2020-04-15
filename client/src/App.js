@@ -13,6 +13,9 @@ import { Provider } from "react-redux";
 import store from "./store";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+import ViewJobs from "./components/job/ViewJobs";
+import NewJob from "./components/job/NewJob";
+import ApplyJob from "./components/job/ApplyJob";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -43,8 +46,12 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/viewjobs" component={ViewJobs} />
+              <PrivateRoute exact path="/newjob" component={NewJob} />
+              <PrivateRoute exact path="/applyjob" component={ApplyJob} />
             </Switch>
           </Router>
         </div>
