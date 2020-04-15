@@ -8,6 +8,7 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/User");
+const Job = require("../../models/Job");
 
 // @route POST api/users/register
 // @desc Register user
@@ -41,6 +42,17 @@ router.post("/register", (req, res) => {
       });
     }
   });
+});
+
+router.post("/newjob", (req, res) => {
+  const newJob = new Job({
+    title: req.body.title,
+    description: req.body.description,
+  });
+  newJob
+    .save()
+    .then((job) => res.json(job))
+    .catch((err) => console.log(err));
 });
 
 // @route POST api/users/login
