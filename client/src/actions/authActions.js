@@ -14,6 +14,18 @@ export const registerUser = (userData, history) => (dispatch) => {
       })
     );
 };
+
+export const registerNewJob = (jobData) => (dispatch) => {
+  axios
+    .post("/api/users/newjob", jobData)
+    .then((res) => console.log(res)) // re-direct to login on successful register
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    );
+};
 // Login - get user token
 export const loginUser = (userData) => (dispatch) => {
   axios

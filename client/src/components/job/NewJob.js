@@ -5,10 +5,32 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { registerUser } from "../../actions/authActions";
+import { registerNewJob } from "../../actions/authActions";
 import classnames from "classnames";
 
 class NewJob extends Component {
+  constructor() {
+    super();
+    this.state = {
+      title: "",
+      description: "",
+    };
+  }
+
+  onChange = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const newJob = {
+      title: this.state.title,
+      description: this.state.description,
+    };
+
+    this.props.registerNewJob(newJob);
+  };
+
   render() {
     return (
       <div className="container">
@@ -71,5 +93,10 @@ class NewJob extends Component {
     );
   }
 }
+NewJob.propTypes = {
+  registerNewJob: PropTypes.func.isRequired,
+};
 
-export default NewJob;
+const mapStateToProps = (state) => ({});
+//export default NewJob;
+export default connect(mapStateToProps, { registerNewJob })(withRouter(NewJob));
