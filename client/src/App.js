@@ -51,7 +51,11 @@ class App extends Component {
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/viewjobs" component={ViewJobs} />
               <PrivateRoute exact path="/newjob" component={NewJob} />
-              <PrivateRoute exact path="/applyjob" component={ApplyJob} />
+              <PrivateRoute
+                exact
+                path="/api/users/jobs/:job"
+                component={ApplyJob}
+              />
             </Switch>
           </Router>
         </div>

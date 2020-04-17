@@ -10,9 +10,20 @@ const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
 const Job = require("../../models/Job");
 
+const mongoose = require("mongoose");
 // @route POST api/users/register
 // @desc Register user
 // @access Public
+
+router.get("/jobs/:job", (req, res) => {
+  console.log(req.params.job);
+  //res.json("cool");
+  Job.findOne({ _id: req.params.job })
+    .then((job) => res.json(job))
+    .catch((err) => console.log(err));
+  //SAVE IT INTO PAYLOAD????
+});
+
 router.post("/register", (req, res) => {
   // Form validation
   const { errors, isValid } = validateRegisterInput(req.body);
@@ -49,10 +60,19 @@ router.post("/newjob", (req, res) => {
     title: req.body.title,
     description: req.body.description,
   });
-  newJob
-    .save()
+  newJob.save();
+
+  Job.find({})
     .then((job) => res.json(job))
     .catch((err) => console.log(err));
+  //SAVE IT INTO PAYLOAD????
+});
+
+router.get("/viewjobs", (req, res) => {
+  Job.find({})
+    .then((job) => res.json(job))
+    .catch((err) => console.log(err));
+  //SAVE IT INTO PAYLOAD????
 });
 
 // @route POST api/users/login

@@ -3,14 +3,36 @@
 //this page leads to different applications
 
 import React, { Component } from "react";
+import axios from "axios";
 
 class ApplyJob extends Component {
+  state = {
+    jobs: [],
+  };
+
+  componentDidMount() {
+    const {
+      match: { params },
+    } = this.props;
+
+    axios.get(`/api/users/jobs/${params.job}`).then((res) => {
+      this.setState({ jobs: res.data });
+      console.log(res.data);
+    });
+  }
+
   render() {
+    console.log(this.props);
+
     return (
       <div>
         {/* display job title and desriptions */}
         {/* SHOOULD SHOW THE SPECIFIC JOB CLICKED */}
         <form action="#">
+          <p>{this.state.jobs.title}</p>
+
+          <p>{this.state.jobs.description}</p>
+
           <div class="file-field input-field">
             <div class="btn">
               <span>File</span>

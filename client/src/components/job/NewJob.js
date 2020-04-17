@@ -28,7 +28,8 @@ class NewJob extends Component {
       description: this.state.description,
     };
 
-    this.props.registerNewJob(newJob);
+    this.props.history.push("/viewjobs");
+    this.props.registerNewJob(newJob, this.props.history);
   };
 
   render() {
