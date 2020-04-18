@@ -10,7 +10,6 @@ const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
 const Job = require("../../models/Job");
 
-const mongoose = require("mongoose");
 // @route POST api/users/register
 // @desc Register user
 // @access Public

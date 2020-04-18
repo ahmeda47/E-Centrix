@@ -4,6 +4,7 @@
 
 import React, { Component } from "react";
 import axios from "axios";
+import { Redirect, Link } from "react-router-dom";
 
 class ApplyJob extends Component {
   state = {
@@ -19,6 +20,12 @@ class ApplyJob extends Component {
       this.setState({ jobs: res.data });
       console.log(res.data);
     });
+  }
+
+  applySuccess() {
+    //return <Link to="/success" />;
+    //console.log();
+    this.props.history.push("/success");
   }
 
   render() {
@@ -39,12 +46,12 @@ class ApplyJob extends Component {
               <input type="file" />
             </div>
             <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" />
+              <input class="file-path validate" id="resume-input" type="text" />
             </div>
           </div>
         </form>
 
-        <button>apply</button>
+        <button onClick={() => this.applySuccess()}>apply</button>
       </div>
     );
   }

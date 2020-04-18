@@ -16,6 +16,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import ViewJobs from "./components/job/ViewJobs";
 import NewJob from "./components/job/NewJob";
 import ApplyJob from "./components/job/ApplyJob";
+import Success from "./components/job/Success";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -56,6 +57,7 @@ class App extends Component {
                 path="/api/users/jobs/:job"
                 component={ApplyJob}
               />
+              <PrivateRoute exact path="/success" component={Success} />
             </Switch>
           </Router>
         </div>
