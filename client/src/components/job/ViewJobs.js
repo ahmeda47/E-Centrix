@@ -18,10 +18,6 @@ class ViewJobs extends Component {
     });
   }
 
-  showJob() {
-    //when id is clicked send value of id as request to router
-  }
-
   render() {
     // console.log(this.props);
     return (
@@ -30,14 +26,30 @@ class ViewJobs extends Component {
         {/* clicking on a job just make a post request to '/job/:id' */}
         {/* put the above in a list and map it */}
         <h1>job list </h1>
-        <ul>
-          {this.state.jobs.map((job) => (
-            <li>
-              {/* add get request route for add id with new page */}
-              <a href={"api/users/jobs/" + job._id}>{job._id}</a>
-            </li>
-          ))}
-        </ul>
+        <ul></ul>
+
+        <table class="center">
+          <thead>
+            <tr>
+              <th>Job ID</th>
+              <th>Job Title</th>
+              <th>Date Listed</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {this.state.jobs.map((job) => (
+              <tr>
+                {/* add get request route for add id with new page */}
+                <td>
+                  <a href={"api/users/jobs/" + job._id}>{job._id}</a>
+                </td>
+                <td>{job.title}</td>
+                <td>{job.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   }

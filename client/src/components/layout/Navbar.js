@@ -30,7 +30,7 @@ class Navbar extends Component {
               }}
               className="col s5 brand-logo left black-text"
             >
-              <i className="material-icons">code</i>
+              <i className="material-icons">home</i>
               Home
             </Link>
             <Link
@@ -40,7 +40,7 @@ class Navbar extends Component {
               }}
               className="col s5 brand-logo center black-text"
             >
-              <i className="material-icons">code</i>
+              <i className="material-icons">work_outline</i>
               View Jobs
             </Link>
             <Link
@@ -50,7 +50,7 @@ class Navbar extends Component {
               }}
               className="col s5 brand-logo right black-text"
             >
-              <i className="material-icons">code</i>
+              <i className="material-icons">add</i>
               Post a Job
             </Link>
           </ul>
