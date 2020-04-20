@@ -32,13 +32,15 @@ class ApplyJob extends Component {
     console.log(this.props);
 
     return (
-      <div>
+      <div className="container">
         {/* display job title and desriptions */}
         {/* SHOOULD SHOW THE SPECIFIC JOB CLICKED */}
         <form action="#">
-          <p>{this.state.jobs.title}</p>
+          <p style={{ fontSize: "40px", fontFamily: "monospace" }}>
+            {this.state.jobs.title}
+          </p>
 
-          <p>{this.state.jobs.description}</p>
+          <p style={{ fontSize: "25px" }}>{this.state.jobs.description}</p>
 
           <div class="file-field input-field">
             <div class="btn">
@@ -51,7 +53,12 @@ class ApplyJob extends Component {
           </div>
         </form>
 
-        <button onClick={() => this.applySuccess()}>apply</button>
+        <button
+          className="waves-effect waves-light btn"
+          onClick={() => this.applySuccess()}
+        >
+          apply
+        </button>
       </div>
     );
   }

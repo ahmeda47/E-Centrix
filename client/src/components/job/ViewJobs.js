@@ -3,7 +3,6 @@
 //this page leads to different applications
 
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import Axios from "axios";
 
 class ViewJobs extends Component {
@@ -25,7 +24,7 @@ class ViewJobs extends Component {
         {/* {job.title} */}
         {/* clicking on a job just make a post request to '/job/:id' */}
         {/* put the above in a list and map it */}
-        <h1>job list </h1>
+        <h1 style={{ fontFamily: "monospace" }}>job list </h1>
         <ul></ul>
 
         <table class="center">
@@ -45,7 +44,7 @@ class ViewJobs extends Component {
                   <a href={"api/users/jobs/" + job._id}>{job._id}</a>
                 </td>
                 <td>{job.title}</td>
-                <td>{job.date}</td>
+                <td>{job.date.split("T")[0]}</td>
               </tr>
             ))}
           </tbody>

@@ -17,6 +17,7 @@ import ViewJobs from "./components/job/ViewJobs";
 import NewJob from "./components/job/NewJob";
 import ApplyJob from "./components/job/ApplyJob";
 import Success from "./components/job/Success";
+import Footer from "./components/layout/Footer";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -61,6 +62,7 @@ class App extends Component {
             </Switch>
           </Router>
         </div>
+        <Footer />
       </Provider>
     );
   }

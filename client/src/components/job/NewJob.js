@@ -38,9 +38,7 @@ class NewJob extends Component {
         <div className="row">
           <div className="col s8 offset-s2">
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Create</b> job below
-              </h4>
+              <h3 style={{ fontFamily: "monospace" }}>new job listing</h3>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
               <div className="input-field col s12">
