@@ -21,9 +21,15 @@ class Dashboard extends Component {
             <h4>
               <b>Welcome,</b> {user.name.split(" ")[0]}.
               <p className="flow-text grey-text text-darken-1">
-                Use the navigation to get started on your job search today.{" "}
+                Use the navigation to get started on your job search.{" "}
               </p>
             </h4>
+            {/* <div className="col s12">
+              <div className="row">
+                <div className="col s6">jobs you posted</div>
+                <div className="col s6">jobs you applied for</div>
+              </div>
+            </div> */}
             <button
               style={{
                 width: "150px",

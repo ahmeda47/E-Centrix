@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //add process.env.MONGODB_URI || before production
-mongoose.connect(db, {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
