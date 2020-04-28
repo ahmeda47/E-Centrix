@@ -27,6 +27,7 @@ class Navbar extends Component {
               to="/dashboard"
               style={{
                 fontFamily: "monospace",
+                marginLeft: "5vw",
               }}
               className="col s5 brand-logo left black-text"
             >
@@ -47,6 +48,7 @@ class Navbar extends Component {
               to="/newjob"
               style={{
                 fontFamily: "monospace",
+                marginRight: "5vw",
               }}
               className="col s5 brand-logo right black-text"
             >
